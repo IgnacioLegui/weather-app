@@ -25,7 +25,12 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'Backend is running' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`DATABASE_URL loaded: ${process.env.DATABASE_URL ? 'YES' : 'NO'}`);
-});
+// Only listen when running locally (not on Vercel)
+if (process.env.VERCEL !== '1') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log(`DATABASE_URL loaded: ${process.env.DATABASE_URL ? 'YES' : 'NO'}`);
+  });
+}
+
+export default app;

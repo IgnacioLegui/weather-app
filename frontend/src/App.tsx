@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Search, MapPin, Sun, Info, CalendarDays, Loader2, Download, Trash2, History, Wind, Droplets, Thermometer, Pencil, Check, X, Github, Linkedin, CloudSun, CloudRain, Snowflake, Cloud, Zap } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 // Floating weather background particles
 function FloatingParticles() {
