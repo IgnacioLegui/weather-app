@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Search, MapPin, Sun, Info, CalendarDays, Loader2, Download, Trash2, History, Wind, Droplets, Thermometer, Pencil, Check, X, Github, Linkedin, CloudSun, CloudRain, Snowflake, Cloud, Zap } from 'lucide-react';
+import { Search, MapPin, Sun, Info, CalendarDays, Loader2, Download, Trash2, History, Wind, Droplets, Thermometer, Pencil, Check, X, Github, Linkedin, CloudSun } from 'lucide-react';
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
@@ -37,20 +37,6 @@ function FloatingParticles() {
       ))}
     </>
   );
-}
-
-// Weather condition icon component
-function WeatherIcon({ condition }: { condition: string }) {
-  const iconClass = "w-5 h-5";
-  switch (condition?.toLowerCase()) {
-    case 'clear': return <Sun className={`${iconClass} text-yellow-400`} />;
-    case 'clouds': return <Cloud className={`${iconClass} text-slate-400`} />;
-    case 'rain':
-    case 'drizzle': return <CloudRain className={`${iconClass} text-blue-400`} />;
-    case 'snow': return <Snowflake className={`${iconClass} text-cyan-300`} />;
-    case 'thunderstorm': return <Zap className={`${iconClass} text-yellow-300`} />;
-    default: return <CloudSun className={`${iconClass} text-slate-300`} />;
-  }
 }
 
 function App() {
